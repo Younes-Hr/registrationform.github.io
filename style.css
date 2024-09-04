@@ -7,7 +7,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Base styles for larger screens (desktops) */
 body {
     display: flex;
     min-height: 100vh;
@@ -53,41 +52,17 @@ body {
     border-radius: 50%;
     font-size: 24px;
     transition: background 0.3s, color 0.3s;
-}
-
-.sidebar .icons a.fb {
-    background: #3b5998;
     color: #fff;
+    text-decoration: none;
 }
 
-.sidebar .icons a.twitter {
-    background: #010101;
-    border-radius: 50%;
-    transition: transform 0.3s;
-}
+.sidebar .icons a.fb { background: #3b5998; }
+.sidebar .icons a.twitter { background: #010101; }
+.sidebar .icons a.insta { background: #e1306c; }
+.sidebar .icons a.tiktok { background: #010101; }
+.sidebar .icons a.yt { background: #ff0000; }
 
-.sidebar .icons a.twitter:hover .icon-image {
-    transform: scale(1.1);
-}
-
-.sidebar .icons a.insta {
-    background: #e1306c;
-    color: #fff;
-}
-
-.sidebar .icons a.tiktok {
-    background: #010101;
-    color: #fff;
-}
-
-.sidebar .icons a.yt {
-    background: #ff0000;
-    color: #fff;
-}
-
-.sidebar .icons a:hover {
-    opacity: 0.8;
-}
+.sidebar .icons a:hover { opacity: 0.8; }
 
 .sidebar .icons a .icon-image {
     width: 30px;
@@ -95,8 +70,8 @@ body {
 }
 
 .wrapper {
-    margin-left: 80px; /* Adjust this margin based on sidebar width */
-    width: calc(100% - 80px); /* Adjust width based on sidebar width */
+    margin-left: 80px;
+    width: calc(100% - 80px);
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -116,7 +91,8 @@ body {
     max-height: 90vh;
 }
 
-.box::before {
+.box::before, .box::after,
+.borderLine::before, .borderLine::after {
     content: " ";
     position: absolute;
     top: -50%;
@@ -129,17 +105,8 @@ body {
     animation: animate 6s linear infinite;
 }
 
-.box::after {
-    content: " ";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 600px;
-    height: 420px;
-    background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
-    z-index: 1;
-    transform-origin: bottom right;
-    animation: animate 6s linear infinite;
+.box::after,
+.borderLine::after {
     animation-delay: -3s;
 }
 
@@ -150,40 +117,18 @@ body {
 }
 
 .borderLine::before {
-    content: " ";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 600px;
-    height: 420px;
     background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
-    z-index: 1;
-    transform-origin: bottom right;
-    animation: animate 6s linear infinite;
     animation-delay: -1.5s;
 }
 
 .borderLine::after {
-    content: " ";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 600px;
-    height: 420px;
     background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
-    z-index: 1;
-    transform-origin: bottom right;
-    animation: animate 6s linear infinite;
     animation-delay: -4.5s;
 }
 
 @keyframes animate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .box form {
@@ -216,22 +161,21 @@ body {
 .box form .inputBox textarea {
     width: 100%;
     padding: 10px;
-    background: none;  /* Ensure the background is fully transparent */
+    background: none;
     border: none;
-    border-bottom: 2px solid #fff;  /* Underline instead of box */
+    border-bottom: 2px solid #fff;
     outline: none;
-    color: #fff;  /* White text color */
+    color: #fff;
     font-size: 1em;
     letter-spacing: 0.05em;
     transition: 0.5s;
-    z-index: 10;
-    appearance: none;  /* Remove default styling in other browsers */
+    appearance: none;
 }
 
 .box form .inputBox input[type="date"],
 .box form .inputBox textarea {
-    color: #fff;  /* White text color */
-    background: transparent;  /* Transparent background */
+    color: #fff;
+    background: transparent;
 }
 
 .box form .inputBox label {
@@ -243,7 +187,6 @@ body {
     color: #8f8f8f;
     text-transform: uppercase;
     transition: 0.5s;
-    z-index: 5;
 }
 
 .box form .inputBox i {
@@ -256,7 +199,6 @@ body {
     border-radius: 4px;
     transition: 0.5s;
     pointer-events: none;
-    z-index: 9;
 }
 
 .box form .inputBox input:focus ~ label,
@@ -266,9 +208,9 @@ body {
 .box form .inputBox textarea:focus ~ label,
 .box form .inputBox textarea:valid ~ label {
     color: #ee094e;
-    transform: translateY(-35px);  /* Move label above the input box */
-    background: #222222;  /* Ensure the label background matches the form background */
-    padding: 0 5px;  /* Add some padding for better visibility */
+    transform: translateY(-35px);
+    background: #222;
+    padding: 0 5px;
 }
 
 .box form .inputBox input:focus ~ i,
@@ -277,7 +219,7 @@ body {
 .box form .inputBox select:valid ~ i,
 .box form .inputBox textarea:focus ~ i,
 .box form .inputBox textarea:valid ~ i {
-    height: 2px;  /* Adjust height to match the underline */
+    height: 2px;
 }
 
 .box form .inputfield.terms {
@@ -309,16 +251,19 @@ body {
     left: 0;
     width: 15px;
     height: 15px;
-    background: #444;
+    background-color: #fff;
     border-radius: 3px;
-    border: 1px solid #fff;
 }
 
-.box form .inputfield.terms .check .checkmark:after {
+.box form .inputfield.terms .check input[type="checkbox"]:checked ~ .checkmark {
+    background-color: #ff2770;
+}
+
+.box form .inputfield.terms .checkmark:after {
     content: "";
     position: absolute;
-    left: 4px;
-    top: 1px;
+    top: 5px;
+    left: 5px;
     width: 5px;
     height: 10px;
     border: solid #fff;
@@ -333,7 +278,6 @@ body {
 
 .box form input[type="submit"] {
     border: none;
-    outline: none;
     background: #ff2770;
     padding: 11px 25px;
     width: 100px;
@@ -343,6 +287,8 @@ body {
     font-weight: 600;
     letter-spacing: 0.05em;
     transition: 0.5s;
+    color: #fff;
+    font-size: 1em;
 }
 
 .box form input[type="submit"]:hover {
@@ -377,7 +323,6 @@ body {
     object-fit: cover;
 }
 
-/* Style for select dropdown */
 select {
     background-color: transparent;
     color: #fff;
@@ -385,30 +330,25 @@ select {
     border: none;
     border-bottom: 2px solid #fff;
     appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     padding: 10px;
     cursor: pointer;
 }
 
-/* Style for the dropdown options */
 select option {
     background-color: #23242a;
     color: #fff;
 }
 
-/* Style for the dropdown caret */
 select::-ms-expand {
-    display: none; /* Remove default dropdown arrow in IE */
+    display: none;
 }
 
-/* Dropdown arrow styling */
 .select-wrapper {
     position: relative;
 }
 
 .select-wrapper::after {
-    content: '\25BC'; /* Unicode character for downward arrow */
+    content: '\25BC';
     position: absolute;
     top: 50%;
     right: 10px;
@@ -417,66 +357,61 @@ select::-ms-expand {
     color: #fff;
 }
 
-/* Make sure the dropdown list is visible on focus */
 select:focus option {
     background-color: #23242a;
     color: #fff;
 }
 
-/* For Webkit Browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-    width: 12px; /* Width of the scrollbar */
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1c1c1c; /* Color of the track */
+    background: #1c1c1c;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, #ff2770, #ff2770); /* Gradient color for the thumb */
+    background: linear-gradient(90deg, #ff2770, #ff2770);
     border-radius: 10px;
-    border: 3px solid #1c1c1c; /* Optional: border around the thumb for separation */
+    border: 3px solid #1c1c1c;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(90deg, #45f3ff, #45f3ff); /* Hover effect */
+    background: linear-gradient(90deg, #45f3ff, #45f3ff);
 }
 
-/* For Firefox */
 html {
     scrollbar-width: thin;
-    scrollbar-color: linear-gradient(90deg, #ff652f, #ff9e00) #1c1c1c;
+    scrollbar-color: #ff2770 #1c1c1c;
 }
 
-/* For Internet Explorer and Edge */
 body {
     -ms-overflow-style: scrollbar;
 }
 
-/* Modal styles */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1000; /* Ensure the modal has a high z-index */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0, 0, 0, 0.5); 
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; 
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; 
-    max-width: 500px; 
+    width: 80%;
+    max-width: 500px;
     text-align: center;
     border-radius: 10px;
-    position: relative; /* Ensure the close button is positioned correctly */
+    position: relative;
 }
 
 .close-button {
@@ -486,94 +421,40 @@ body {
     top: 20px;
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .close-button:hover,
 .close-button:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer;
+    outline: none;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 60px;
-    }
-
-    .sidebar .icons a {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-    }
-
-    .wrapper {
-        margin-left: 60px; /* Adjust margin based on sidebar width */
-        width: calc(100% - 60px); /* Adjust width based on sidebar width */
-    }
-
-    .box {
-        width: 100%;
-        max-width: none; /* Remove max-width restriction */
-    }
-
-    .box form h2 {
-        font-size: 1.5em;
-    }
-
+    .sidebar { width: 60px; }
+    .sidebar .icons a { width: 50px; height: 50px; font-size: 20px; }
+    .wrapper { margin-left: 60px; width: calc(100% - 60px); }
+    .box { width: 100%; max-width: none; }
+    .box form h2 { font-size: 1.5em; }
     .box form .inputBox input,
     .box form .inputBox select,
-    .box form .inputBox textarea {
-        font-size: 0.9em;
-    }
-
-    .box form input[type="submit"] {
-        width: 100px;
-    }
-
-    .background .logo-grid {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    }
+    .box form .inputBox textarea { font-size: 0.9em; }
+    .box form input[type="submit"] { width: 100px; }
+    .background .logo-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
 }
 
 @media (max-width: 480px) {
-    .sidebar {
-        width: 50px;
-    }
-
-    .sidebar .icons a {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-
-    .wrapper {
-        margin-left: 50px; /* Adjust margin based on sidebar width */
-        width: calc(100% - 50px); /* Adjust width based on sidebar width */
-    }
-
-    .box {
-        width: 100%;
-        max-width: none; /* Remove max-width restriction */
-    }
-
-    .box form h2 {
-        font-size: 1.2em;
-    }
-
+    .sidebar { width: 50px; }
+    .sidebar .icons a { width: 40px; height: 40px; font-size: 16px; }
+    .wrapper { margin-left: 50px; width: calc(100% - 50px); }
+    .box { width: 100%; max-width: none; }
+    .box form h2 { font-size: 1.2em; }
     .box form .inputBox input,
     .box form .inputBox select,
-    .box form .inputBox textarea {
-        font-size: 0.8em;
-    }
-
-    .box form input[type="submit"] {
-        width: 80px;
-    }
-
-    .background .logo-grid {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    }
+    .box form .inputBox textarea { font-size: 0.8em; }
+    .box form input[type="submit"] { width: 80px; }
+    .background .logo-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
 }
 
 #preloader {
